@@ -12,5 +12,5 @@ app.post('/', function (req, res) {
 })
 
 app.listen(PORT, () => {
-    console.log(`App runs on port ${PORT}`)
+    console.log(`Keylogging server runs on http://localhost:${PORT}`)
 })
