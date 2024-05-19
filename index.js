@@ -1,8 +1,16 @@
 const express = require('express')
 const app = express()
+const PORT = 3000;
+const bodyParser = require('body-parser')
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.post('/', function (req, res) {
+    const { password } = req.body;
+    console.log(`Captured password: password: ${password}`);
+    res.status(200);
 })
 
-app.listen(3000)
+app.listen(PORT, () => {
+    console.log(`App runs on port ${PORT}`)
+})

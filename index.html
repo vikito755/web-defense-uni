@@ -24,8 +24,35 @@
 
         <form id="password-form">
             <label for="password"></label>
-            <input type="password" />
+            <input name="password" id="password" type="password" />
+            <button type="submit">Submit</button>
         </form>
     </div>
+
+    <script>
+        const formElement = document.getElementById('password-form');
+        const passwordElement = document.getElementById('password');
+
+        formElement.addEventListener('submit', (event) => { 
+            const plainTextPassword = passwordElement.value;
+            console.log(plainTextPassword)
+            
+
+            fetch(`http://localhost:3000`, 
+                {
+                    method: 'POST',
+                    body: new URLSearchParams(
+                        {
+                            password: plainTextPassword
+                        }
+                    )
+                }
+            )
+        }, false)
+    
+
+        
+    
+    </script>
 </body>
 </html>
